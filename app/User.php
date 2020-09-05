@@ -36,4 +36,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Creates Relationship with School Model
+     * 
+     * @return obj
+     **/
+    public function school()
+    {
+        return $this->hasOne(School::class, 'principal');
+    }
+
+    /**
+     * Creates Relationship with Vacancy Model
+     * 
+     * @return obj
+     **/
+    public function postedVacancies()
+    {
+        return $this->hasMany(Vacancy::class, 'posted_by');
+    }
+
+    /**
+     * Creates Relationship with Application Model
+     * 
+     * @return obj
+     **/
+    public function appliedJobs()
+    {
+        return $this->hasMany(Application::class, 'applicant');
+    }
 }
