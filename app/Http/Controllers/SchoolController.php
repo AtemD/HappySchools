@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ImportSchoolsData;
 use App\Http\Requests\StoreSchoolData;
+use App\Imports\SchoolsImport;
 use App\School;
 use App\User;
 use App\View\Components\SchoolForm;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\HeadingRowImport;
 
 class SchoolController extends Controller
 {
@@ -21,7 +23,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        return view('school.index');
     }
 
     /**
@@ -43,7 +45,45 @@ class SchoolController extends Controller
      **/
     public function import(ImportSchoolsData $request)
     {
+        $excelHeading = [
+            'head_first_name',
+            'head_last_name',
+            'main_email',
+            'urn',
+            'school_name',
+            'school_type',
+            'phone_number',
+            'fax_number',
+            'post_code',
+            'street',
+            'locality',
+            'town',
+            'address_3',
+            'school_website'
+        ];
+
+        $headings = (new HeadingRowImport())->toArray($request->import)[0][0];
         
+        if (array_diff($excelHeading, $headings)) {
+            return back()->withErrors('The specified Excel doesn\'t consist required columns.');
+        }
+
+        $extension = $request->import->extension();
+        $fileName = "data-import-" . time() . "." . $extension;
+        $file = $request->import->storeAs('imports', $fileName);
+        
+        $import = new SchoolsImport;
+        $import->import($file);
+        
+        // if ($import->failures()->isNotEmpty()) {
+        //     session()->flash('failures', $import->failures());
+        // }
+
+        if (count($import->skippedRows)) {
+            session()->flash('failures', $import->skippedRows);
+        }
+
+        return back()->with('success', 'School data imported successfully.');
     }
 
     /**
@@ -85,9 +125,6 @@ class SchoolController extends Controller
             $request->request->remove('email');
             $request->request->remove('longitude');
             $request->request->remove('latitude');
-
-            if(!$request->locality)
-                $request->request->remove('locality');
     
             $user->school()->create($request->except('image'));
             DB::commit();

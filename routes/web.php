@@ -22,4 +22,4 @@ Route::get('/home', function () {
 });
 
 Route::resource('school', 'SchoolController');
-Route::post('school.import', 'SchoolController@import')->name('school.import');
+Route::post('school/import', 'SchoolController@import')->name('school.import');
