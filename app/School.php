@@ -6,6 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
+    /** @var array $fillable mass assignment for the fields */
+    protected $fillable = [
+        'urn',
+        'name',
+        'type',
+        'phone',
+        'fax',
+        'post_code',
+        'street',
+        'logo',
+        'locality',
+        'town',
+        'address_3',
+        'website',
+        'longitude',
+        'latitude',
+        'principal',
+    ];
+
     /**
      * Create Relationship with User Model
      *

@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::resource('school', 'SchoolController');
+Route::post('school.import', 'SchoolController@import')->name('school.import');
