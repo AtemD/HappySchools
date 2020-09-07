@@ -1,0 +1,41 @@
+/*
+    Form Component Style Rules
+    ======================================================================*/
+.form
+    &__container
+        width: 90%
+        margin: 0 auto
+
+    &__field
+        width: 100%
+        display: flex
+        justify-content: space-between
+
+        &:not(:last-child)
+            margin-bottom: 2rem
+
+        &--center
+            justify-content: center
+
+    &__input
+        width: 100%
+        display: block
+        padding: 1rem 2.6rem
+        border: none
+        outline: none
+        border-radius: .4rem
+        font-size: 1em
+        background-color: $body-bg
+
+        &:focus
+            outline: none
+            border: 0
+
+select.form__input
+    -moz-appearance: none
+    -webkit-appearance: none
+    appearance: none
+    cursor: pointer
+    // background-image: url(../img/svg/arrow-down.svg)
+    background-repeat: no-repeat
+    background-position: right .7em top 50%

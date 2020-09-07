@@ -1,0 +1,65 @@
+/*
+    BUTTON STYLE RULES
+    =====================================================*/
+.auth-btn
+    color: currentColor
+    font-size: 1.4rem
+
+    &__container
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: flex-end
+
+    &--login
+        border-radius: 0.4em
+        padding: 0.8rem 3rem
+        text-transform: uppercase
+        font-weight: 300
+        position: relative
+        margin-right: 1rem
+        border: 1px solid currentColor
+        transition: all .3s ease-in-out
+
+        & > i
+            margin-right: 0.8rem
+
+        &:hover
+            color: currentColor
+            border-color: currentColor
+            box-shadow: 0 6px 8px -4px rgba(0, 0, 0, .23)
+
+    &--register
+        @extend .auth-btn--login
+        color: $color-white
+        border-width: 2px
+        margin: 0
+        border-color: $color-secondary
+        background-color: $color-secondary
+
+        &:hover
+            color: $color-white
+
+.btn
+    &--hero
+        min-height: 6.8rem
+        padding: 0
+        background-color: $color-primary
+        color: $color-white
+        font-size: 1.4em
+        border-radius: .4em
+        display: block
+        text-transform: capitalize
+        border: 1px solid $color-primary
+        transition: all .3s ease-in-out
+
+        & i
+            display: inline-block
+            vertical-align: middle
+            font-size: 1.4em
+            margin-right: 0.6rem
+
+        &:hover
+            color: $color-primary
+            background-color: transparent
+    

@@ -1,0 +1,90 @@
+/*
+    TITLE STYLE RULES
+    ======================================================================*/
+.title
+    $title: &
+    width: 80%
+    line-height: 1.2
+    text-align: left
+    position: relative
+
+    &::after,
+    &::before
+        content: ''
+        height: 2px
+        width: 8.3334em
+        position: absolute
+        background-color: $color-primary
+
+    &::after
+        bottom: 0
+
+    &::before
+        left: 0
+        bottom: 0.6667em
+
+    &--full
+        width: 100%
+
+    &--no-style
+        margin-bottom: 0
+
+        &::after,
+        &::before
+            display: none
+
+    &--center
+        text-align: center
+        margin-left: auto
+        margin-right: auto
+
+        // &::after
+        //     left: calc( 50% + #{$gap-xsm} / 2 )
+        //     transform: translateX(-50%)
+
+        // &::before
+        //     left: calc( 50% - #{$gap-xsm} / 2 )
+        //     transform: translateX(-50%)
+
+    &--right
+        text-align: right
+    
+    &--white
+        color: $color-white
+
+        #{$title}__subtitle
+            color: currentColor
+
+    &--no-mb
+        margin-bottom: 0
+
+    &__subtitle
+        font-size: 0.8889em
+        font-weight: 500
+        text-transform: uppercase
+
+    &__heading
+        font-weight: 700
+        margin-bottom: 0
+    
+    &__description
+        font-size: 1.8em
+        margin-top: 2rem
+
+// @mixin title--tablet()
+//     .title
+//         width: 100%
+
+// @mixin title--medium()
+//     .title
+//         text-align: center
+//         margin-left: auto
+//         margin-right: auto
+
+//         &::after
+//             left: calc( 50% + #{$gap-xsm} / 2 )
+//             transform: translateX(-50%)
+
+//         &::before
+//             left: calc( 50% - #{$gap-xsm} / 2 )
+//             transform: translateX(-50%)

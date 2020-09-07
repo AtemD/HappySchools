@@ -75,13 +75,13 @@ class SchoolController extends Controller
         $import = new SchoolsImport;
         $import->import($file);
         
-        // if ($import->failures()->isNotEmpty()) {
-        //     session()->flash('failures', $import->failures());
-        // }
-
-        if (count($import->skippedRows)) {
-            session()->flash('failures', $import->skippedRows);
+        if ($import->failures()->isNotEmpty()) {
+            session()->flash('failures', $import->failures());
         }
+
+        // if (count($import->skippedRows)) {
+        //     session()->flash('failures', $import->skippedRows);
+        // }
 
         return back()->with('success', 'School data imported successfully.');
     }
