@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\School;
 use Illuminate\View\Component;
 
 class SchoolForm extends Component
@@ -20,6 +21,9 @@ class SchoolForm extends Component
      */
     public $schoolData;
 
+    /** @var array $schoolTypes Get School types from DB */
+    // public $schoolTypes;
+
     /**
      * Create the component instance.
      *
@@ -31,6 +35,7 @@ class SchoolForm extends Component
     {
         $this->type = $type;
         $this->schoolData = $schoolData;
+        // $this->schoolTypes = School::select('type')->distinct()->orderBy('type', 'asc')->get();
     }
 
     /**

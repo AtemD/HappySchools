@@ -15,7 +15,6 @@
 @endsection
 
 @section('content')
-
 @if ($errors->any() || session()->has('success'))
   @php
     $messages = $errors->any() ? $errors->all() : [session()->get('success')];
@@ -23,10 +22,6 @@
   @endphp
   <x-alert :type="$type" :messages="$messages" />
 @endif
-{{-- @if ($errors->any())
-  <x-alert type="error" :messages="{{ $errors->all() }}" /> 
-
-@endif --}}
 
 <div class="box box-primary">
   <div class="box-header with-border">

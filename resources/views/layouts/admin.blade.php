@@ -7,6 +7,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('admin/vendor/bootstrap/css/bootstrap.css') }}">
+  {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('admin/font-icons/font-awesome/css/font-awesome.css') }}">

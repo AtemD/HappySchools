@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('additional-styles')
-{{-- <livewire:styles /> --}}
+<livewire:styles />
 @endsection
 
 @section('additional-scripts')
-{{-- <livewire:scripts /> --}}
+<livewire:scripts />
 @endsection
 
 @section('header')
@@ -31,6 +31,6 @@
   </div>
   <!-- /.box-header -->
 
-  {{-- <livewire:school.view /> --}}
+  <livewire:school.index />
 </div>
 @endsection

@@ -29,8 +29,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="schoolType">School Type *</label>
+                                {{-- {{$schoolTypes}} --}}
                                 <select name="type" id="schoolType" class="form-control" required>
                                   <option value="">Select Type</option>
+                                  <option value="primary" {{ old('type') === 'nursary' ? 'selected' : '' }}>Primary School</option>
                                   <option value="primary" {{ old('type') === 'primary' ? 'selected' : '' }}>Primary School</option>
                                   <option value="secondary" {{ old('type') === 'secondary' ? 'selected' : '' }}>Secondary School</option>
                                   <option value="not-applicable" {{ old('type') === 'not-applicable' ? 'selected' : '' }}>Not Applicable</option>

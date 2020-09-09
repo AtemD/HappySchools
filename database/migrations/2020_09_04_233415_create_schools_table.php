@@ -19,7 +19,7 @@ class CreateSchoolsTable extends Migration
             $table->string('name');
             $table->text('type');
             $table->text('logo')->nullable();
-            $table->string('street');
+            $table->string('street')->nullable();
             $table->string('locality')->nullable();
             $table->text('address_3')->nullable();
             $table->string('town');
